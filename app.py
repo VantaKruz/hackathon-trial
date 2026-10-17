@@ -60,7 +60,7 @@ if process_btn and uploaded_pdf and uploaded_excel:
         st.subheader("Structural Explainability Layer")
         st.caption("Inspect the structural reasoning behind layout transformations.")
         
-        with st.expander("🔍 Inspection Node: P-101A / P-101B (Pump Loop)", expanded=True):
+        with st.expander("Inspection Node: P-101A / P-101B (Pump Loop)", expanded=True):
             e_col1, e_col2 = st.columns([1, 2])
             
             with e_col1:
