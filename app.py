@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
-import fitz  # PyMuPDF
+import fitz  
 from PIL import Image
 import io
 
-# --- Page Config ---
 st.set_page_config(page_title="UNTANGLE | Explainable AI & Engineering QC", layout="wide")
 
 st.markdown("""
@@ -25,7 +24,6 @@ st.title("Project UNTANGLE")
 st.caption("AI-Driven P&ID Line Simplification & Cross-Modal Consistency Engine")
 st.markdown("---")
 
-# --- Sidebar Inputs ---
 with st.sidebar:
     st.header("1. Input Files")
     uploaded_pdf = st.file_uploader("Upload P&ID (PDF)", type=["pdf"])
@@ -37,7 +35,6 @@ with st.sidebar:
     
     process_btn = st.button("Run UNTANGLE Engine")
 
-# Helper function to render PDF
 def render_pdf_page(pdf_bytes):
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     page = doc.load_page(0)
@@ -48,7 +45,6 @@ if process_btn and uploaded_pdf and uploaded_excel:
     pdf_bytes = uploaded_pdf.read()
     pid_image = render_pdf_page(pdf_bytes)
     
-    # --- Top Section: Side-by-Side Visual Transformation ---
     st.subheader("1. Structural Transformation")
     col1, col2 = st.columns(2)
     with col1:
@@ -60,7 +56,6 @@ if process_btn and uploaded_pdf and uploaded_excel:
         
     st.markdown("---")
 
-    # --- Feature 1: Explainable AI Layer ("Why AI Did This?") ---
     if enable_explainability:
         st.subheader("2. Innovation #1: Structural Explainability Layer ('Why AI Did This?')")
         st.caption("Inspect the structural reasoning behind layout transformations.")
@@ -95,17 +90,15 @@ Original:          Simplified:
 
     st.markdown("---")
 
-    # --- Feature 2: Cross-Modal Consistency Engine ---
     if enable_cross_modal:
         st.subheader("3. Innovation #2: Cross-Modal Engineering Consistency Matrix")
         st.caption("Validation across P&ID Drawing ↔ Excel IO List ↔ Extracted Process Graph")
         
-        # Cross-modal audit data
         qc_data = {
             "Item Tag": ["LT-101", "LT-102", "PT-205", "PT-301"],
             "P&ID Drawing State": ["Present (T-101)", "Present (T-101)", "Not Found", "Present (P-101A)"],
             "IO List State": ["Present (AI)", "Listed as LT-101 in IO", "Present (Signal: AI)", "Present (Signal: DO)"],
-            "Validation Status": ["✅ MATCH", "❌ TAG MISMATCH", "⚠️ MISSING FROM DRAWING", "🚨 SEMANTIC CONFLICT"],
+            "Validation Status": ["MATCH", "TAG MISMATCH", "MISSING FROM DRAWING", "SEMANTIC CONFLICT"],
             "Engine Action / Recommendation": [
                 "Approved for rendering",
                 "Renamed tag to match IO master record",
