@@ -79,10 +79,10 @@ Original:          Simplified:
                     <h4>Pattern Detected: Parallel Duty/Standby Loop</h4>
                     <p><b>Structural Evidence:</b></p>
                     <ul>
-                        <li>✓ <b>Upstream Node:</b> Shared Tank (T-101) outlet branch</li>
-                        <li>✓ <b>Downstream Node:</b> Shared Output Line convergence</li>
-                        <li>✓ <b>Equipment Match:</b> Dual Centrifugal Pumps</li>
-                        <li>✓ <b>Naming Pattern:</b> Matching alphanumeric pair ('A' / 'B' suffix)</li>
+                        <li><b>Upstream Node:</b> Shared Tank (T-101) outlet branch</li>
+                        <li><b>Downstream Node:</b> Shared Output Line convergence</li>
+                        <li><b>Equipment Match:</b> Dual Centrifugal Pumps</li>
+                        <li><b>Naming Pattern:</b> Matching alphanumeric pair ('A' / 'B' suffix)</li>
                     </ul>
                     <p><b>Classification:</b> Parallel Duty/Standby Pair | <b>Confidence Score:</b> 94%</p>
                 </div>
