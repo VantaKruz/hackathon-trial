@@ -30,7 +30,7 @@ with st.sidebar:
     uploaded_excel = st.file_uploader("Upload IO List (Excel)", type=["xlsx", "xls"])
     
     st.header("2. Engine Configuration")
-    enable_explainability = st.checkbox("Enable 'Why AI Did This' Tracing", value=True)
+    enable_explainability = st.checkbox("Enable Structural Explainability Layer", value=True)
     enable_cross_modal = st.checkbox("Enable Cross-Modal Validation", value=True)
     
     process_btn = st.button("Run UNTANGLE Engine")
@@ -57,7 +57,7 @@ if process_btn and uploaded_pdf and uploaded_excel:
     st.markdown("---")
 
     if enable_explainability:
-        st.subheader("2. Innovation #1: Structural Explainability Layer ('Why AI Did This?')")
+        st.subheader("Structural Explainability Layer")
         st.caption("Inspect the structural reasoning behind layout transformations.")
         
         with st.expander("🔍 Inspection Node: P-101A / P-101B (Pump Loop)", expanded=True):
@@ -91,7 +91,7 @@ Original:          Simplified:
     st.markdown("---")
 
     if enable_cross_modal:
-        st.subheader("3. Innovation #2: Cross-Modal Engineering Consistency Matrix")
+        st.subheader("Cross-Modal Engineering Consistency Matrix")
         st.caption("Validation across P&ID Drawing ↔ Excel IO List ↔ Extracted Process Graph")
         
         qc_data = {
